@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity{
             String username = editTextUsername.getText().toString().trim();
             String password = editTextPassword.getText().toString().trim();
             if (username.equals("admin") && password.equals("admin")){
-                Intent main = new Intent(this, MainActivity.class);
+                Intent main = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(main);
             }
             else{
@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity{
         });
 
         buttonSignup.setOnClickListener((v -> {
-            Intent signup = new Intent(this, SignupActivity.class);
+            Intent signup = new Intent(LoginActivity.this, SignupActivity.class);
             startActivity(signup);
         }));
     }
