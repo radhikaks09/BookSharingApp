@@ -4,6 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home">
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.booksharingapp.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/nav_home"
@@ -12,14 +17,15 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.booksharingapp.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_forum"
+        android:name="com.example.booksharingapp.ui.forum.ForumFragment"
+        android:label="@string/menu_forum"
+        tools:layout="@layout/fragment_forum" />
 
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.booksharingapp.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+    <activity
+        android:id="@+id/nav_logout"
+        android:name="com.example.booksharingapp.LoginActivity"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/login_page" />
+
 </navigation>

@@ -1,16 +1,16 @@
-package com.example.booksharingapp.ui.slideshow;
+package com.example.booksharingapp.ui.forum;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class ForumViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+    public ForumViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is book sharing forum fragment");
     }
 
     public LiveData<String> getText() {
