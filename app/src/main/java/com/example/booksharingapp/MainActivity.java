@@ -51,14 +51,15 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-//    @Override
-//    public boolean onNavigationItemSelected(MenuItem item) {
-////        if (item.getItemId() == R.id.nav_logout) {
-////            Intent logout = new Intent(this, LoginActivity.class);
-////            startActivity(logout);
-////        }
-//        return true;
-//    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.nav_logout) {
+            Intent logout = new Intent(this, LoginActivity.class);
+            startActivity(logout);
+            return true;
+        }
+        else return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public boolean onSupportNavigateUp() {
