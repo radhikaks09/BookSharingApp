@@ -85,22 +85,25 @@ public class ForumFragment extends Fragment {
         Log.d("UploadPDF", "Attempting to upload: " + fileUri.toString());
 
         if (fileUri != null) {
-            StorageReference fileRef = storageReference.child(PDF_STORAGE_PATH + System.currentTimeMillis() + ".pdf");
+            final StorageReference fileRef = storageReference.child(PDF_STORAGE_PATH + System.currentTimeMillis() + ".pdf");
             fileRef.putFile(fileUri)
-                    .addOnSuccessListener(taskSnapshot -> {
+                    .addOnSuccessListener(taskSnapshot -> fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                        String downloadUrl = uri.toString();
                         Toast.makeText(getContext(), "File uploaded successfully", Toast.LENGTH_SHORT).show();
                         ForumViewModel forumViewModel = new ViewModelProvider(this).get(ForumViewModel.class);
-                        forumViewModel.addMessage("PDF uploaded: " + taskSnapshot.getMetadata().getPath());
-                    })
+                        String message = "PDF uploaded: <a href='" + downloadUrl + "'>Download PDF</a>";
+                        forumViewModel.addMessage(message);
+                    }))
                     .addOnFailureListener(e -> {
                         Toast.makeText(getContext(), "Upload failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                        Log.e("UploadPDF","Error: " + e.toString());
+                        Log.e("UploadPDF", "Error: " + e.toString());
                     });
         } else {
             Toast.makeText(getContext(), "File URI is null", Toast.LENGTH_SHORT).show();
             Log.e("UploadPDF", "File URI is null");
         }
     }
+
 
 
     @Override
