@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+import com.google.firebase.database.FirebaseDatabase;
 import androidx.annotation.NonNull;
 import android.util.Log;
 import androidx.fragment.app.Fragment;
@@ -16,7 +17,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.booksharingapp.databinding.FragmentForumBinding;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 public class ForumFragment extends Fragment {
 
@@ -26,11 +26,15 @@ public class ForumFragment extends Fragment {
     private FragmentForumBinding binding;
 
     private FirebaseStorage storage;
+    private FirebaseDatabase database;
+
     private StorageReference storageReference;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         storage = FirebaseStorage.getInstance();
+        database = FirebaseDatabase.getInstance();
+
         storageReference = storage.getReference();
 
         ForumViewModel forumViewModel = new ViewModelProvider(this).get(ForumViewModel.class);

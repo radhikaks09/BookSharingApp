@@ -50,6 +50,7 @@ dependencies {
     implementation("com.google.firebase:firebase-storage:20.0.1")
     implementation("com.google.firebase:firebase-core:21.1.1")
     implementation("com.google.firebase:firebase-analytics:21.0.0")
+    implementation ("com.google.firebase:firebase-database:20.0.3")
     implementation ("androidx.appcompat:appcompat:1.4.1")
     implementation ("com.google.android.material:material:1.6.1")
     implementation ("androidx.constraintlayout:constraintlayout:2.1.3")
