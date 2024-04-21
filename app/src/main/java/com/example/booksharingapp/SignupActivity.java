@@ -19,7 +19,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SignupActivity extends AppCompatActivity{
     private EditText editTextEmail;
-    private EditText editTextName;
     private EditText editTextUsername;
     private EditText editTextPassword;
     private FirebaseAuth mAuth;
@@ -29,7 +28,6 @@ public class SignupActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_page);
         editTextEmail = findViewById(R.id.editTextEmail);
-        editTextName = findViewById(R.id.editTextName);
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
         Button buttonSignup = findViewById(R.id.buttonSignup);
@@ -38,7 +36,6 @@ public class SignupActivity extends AppCompatActivity{
 
         buttonSignup.setOnClickListener(v -> {
             String email = editTextEmail.getText().toString().trim();
-            String name = editTextName.getText().toString().trim();
             String username = editTextUsername.getText().toString().trim();
             String password = editTextPassword.getText().toString().trim();
 
@@ -58,5 +55,4 @@ public class SignupActivity extends AppCompatActivity{
             });
         });
     }
-
 }
