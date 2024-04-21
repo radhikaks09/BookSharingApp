@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "672040321485",
+    "project_id": "bookssharingdb",
+    "storage_bucket": "bookssharingdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672040321485:android:3f36daaa9ef761d00cc484",
+        "android_client_info": {
+          "package_name": "com.example.booksharingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDifFOYkeVyg3zkI11TzsxPf1fbd3EABso"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
