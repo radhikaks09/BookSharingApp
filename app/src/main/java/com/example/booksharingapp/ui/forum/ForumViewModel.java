@@ -26,13 +26,11 @@ public class ForumViewModel extends ViewModel {
     }
 
     public void addMessage(String message) {
-        if (message != null && !message.trim().isEmpty()) {
-            List<String> currentMessages = mMessages.getValue();
-            if (currentMessages == null) {
-                currentMessages = new ArrayList<>();
-            }
-            currentMessages.add(message);
-            mMessages.setValue(currentMessages);
+        List<String> currentMessages = mMessages.getValue();
+        if (currentMessages == null) {
+            currentMessages = new ArrayList<>();
         }
+        currentMessages.add(message);
+        mMessages.setValue(currentMessages);
     }
 }

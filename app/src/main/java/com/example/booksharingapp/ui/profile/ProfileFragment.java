@@ -22,7 +22,6 @@ public class ProfileFragment extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        // Set text views and image views based on the LiveData from ViewModel
         profileViewModel.getUsername().observe(getViewLifecycleOwner(), username -> binding.usernameTextView.setText(username));
         profileViewModel.getDescription().observe(getViewLifecycleOwner(), description -> binding.descriptionTextView.setText(description));
         profileViewModel.getProfileImageUrl().observe(getViewLifecycleOwner(), imageUrl -> {
