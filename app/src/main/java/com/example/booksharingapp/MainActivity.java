@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;
@@ -16,11 +15,24 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.booksharingapp.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private FirebaseAuth mAuth;
 
+    @Override
+    public void onStart(){
+        super.onStart();
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser == null) {
+            Intent login = new Intent(this, LoginActivity.class);
+            startActivity(login);
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,13 +41,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .setAnchorView(R.id.fab).show());
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+         // Passing each menu ID as a set of Ids because each
+         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_profile, R.id.nav_forum)
                 .setOpenableLayout(drawer)
@@ -54,8 +63,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.nav_logout) {
-            Intent logout = new Intent(this, LoginActivity.class);
-            startActivity(logout);
+            FirebaseAuth.getInstance().signOut();
+            if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                Intent logout = new Intent(this, LoginActivity.class);
+                startActivity(logout);
+            }
             return true;
         }
         else return super.onOptionsItemSelected(item);
