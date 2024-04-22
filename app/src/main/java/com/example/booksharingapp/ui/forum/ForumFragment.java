@@ -48,7 +48,6 @@ public class ForumFragment extends Fragment {
     }
 
     private void setupUI(ForumViewModel forumViewModel) {
-        binding.textGallery.setText(forumViewModel.getText().getValue());
         binding.recyclerViewMessages.setLayoutManager(new LinearLayoutManager(getContext()));
         MessagesAdapter adapter = new MessagesAdapter(forumViewModel.getMessages().getValue());
         binding.recyclerViewMessages.setAdapter(adapter);

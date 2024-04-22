@@ -17,8 +17,8 @@ public class HomeViewModel extends ViewModel {
                 "1. You may Login to your account using your EmailID and a unique password, or you may SignUp to our app by creating an account.\n" +
                 "2. Once you are Logged in, you will be taken to the description screen (this one) and you will have a Navigation bar to the left of the screen.\n" +
                 "3. The Navigation bar provides you with the details to contact the makers of the app. \n" +
-                "\tIt also allows you to view your Profile and include a profile description if you wanted to. \n" +
-                "\tIt allows you to open the Forum where you can upload and download books.\n" +
+                "\tIt allows you to view your Profile. \n" +
+                "\tIt also allows you to open the Forum where you can upload and download books.\n" +
                 "4. When you're done using the app, you may Logout.");
     }
 

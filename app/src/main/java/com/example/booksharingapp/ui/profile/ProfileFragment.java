@@ -23,7 +23,7 @@ public class ProfileFragment extends Fragment {
         View root = binding.getRoot();
 
         profileViewModel.getUsername().observe(getViewLifecycleOwner(), username -> binding.usernameTextView.setText(username));
-        profileViewModel.getDescription().observe(getViewLifecycleOwner(), description -> binding.descriptionTextView.setText(description));
+        profileViewModel.getEmail().observe(getViewLifecycleOwner(), email -> binding.emailTextView.setText(email));
         profileViewModel.getProfileImageUrl().observe(getViewLifecycleOwner(), imageUrl -> {
             if (!imageUrl.isEmpty()) {
                 Glide.with(this).load(imageUrl).into(binding.profileImageView);

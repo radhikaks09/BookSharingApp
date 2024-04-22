@@ -8,18 +8,12 @@ import java.util.List;
 
 public class ForumViewModel extends ViewModel {
     private final MutableLiveData<List<String>> mMessages;
-    private final MutableLiveData<String> mText;
 
     public ForumViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is book sharing forum fragment");
         mMessages = new MutableLiveData<>();
         mMessages.setValue(new ArrayList<>());
     }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
 
     public LiveData<List<String>> getMessages() {
         return mMessages;
